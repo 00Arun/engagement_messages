@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="ne">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reet &amp; Arun&rsquo;s Engagement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Marcellus&family=Tiro+Devanagari+Hindi&display=swap">
+<style>
+/* ============================================================
+   Reet & Arun: engagement hall display
+   Green and white in a puja register: temple green ground, warm
+   chandan white, brass-gold filigree from Arun's brocade daura,
+   and a diyo glow rising from the foot of the screen.
+   Opens on an invocation to Lord Ganesh.
+   ============================================================ */
+:root{
+  --ink:       #071A0E;   /* ground: near-black, green bias   */
+  --green:     #0D3F26;   /* deep emerald                     */
+  --green-mid: #14563C;
+  --green-lift:#1F7C4A;   /* the light that lifts the top     */
+  --white:     #FFFFFF;
+  --ivory:     #FFF6E6;   /* white carrying a whisper of green*/
+  --pearl:     #FFFBF2;
+  --gold:      #E0A84E;   /* ornament only                    */
+  --gold-lift: #F7D89A;
+  --saffron:   #E8933A;   /* भगवा / marigold             */
+  --diyo:      #FF9E3D;   /* lamp flame                  */
+
+  --f-display: 'Bodoni Moda', Didot, 'Times New Roman', serif;
+  --f-util:    'Marcellus', Optima, Palatino, serif;
+  /* Tiro has full Nepali conjunct support. Display faces like
+     Rozha One silently mangle हाँस्नुहोस् and साटियो. */
+  --f-np-disp: 'Tiro Devanagari Hindi', 'Kohinoor Devanagari', 'Nirmala UI', 'Noto Serif Devanagari', serif;
+  --f-np:      'Tiro Devanagari Hindi', 'Kohinoor Devanagari', 'Nirmala UI', 'Noto Serif Devanagari', serif;
+
+  /* One unit for everything. Fits a 16:9 design box inside any
+     viewport, so 1280x720, 4K and 8K render the identical
+     composition, only sharper. */
+  --k: min(1vw, 1.778vh);
+
+  --t-eyebrow: calc(var(--k) * 1.4);
+  --t-head-xl: calc(var(--k) * 6.4);
+  --t-head-lg: calc(var(--k) * 5.3);
+  --t-head-md: calc(var(--k) * 4.5);
+  --t-head-sm: calc(var(--k) * 3.7);
+  --t-sub:     calc(var(--k) * 2.2);
+  --t-mono:    calc(var(--k) * 2.3);
+  --t-foot:    calc(var(--k) * 1.2);
+  --t-mantra:  calc(var(--k) * 3.2);
+  --t-om:      calc(var(--k) * 30);
+  --head-w:    calc(var(--k) * 66);
+  --sub-w:     calc(var(--k) * 46);
+}
+@media (orientation: portrait){
+  :root{
+    --k: min(2.6vw, 0.85vh);
+    --t-eyebrow: calc(var(--k) * 2.0);
+    --t-head-xl: calc(var(--k) * 8.4);
+    --t-head-lg: calc(var(--k) * 7.1);
+    --t-head-md: calc(var(--k) * 6.0);
+    --t-head-sm: calc(var(--k) * 5.0);
+    --t-sub:     calc(var(--k) * 2.9);
+    --t-mono:    calc(var(--k) * 3.4);
+    --t-foot:    calc(var(--k) * 1.7);
+    --t-mantra:  calc(var(--k) * 4.4);
+    --t-om:      calc(var(--k) * 32);
+    --head-w:    calc(var(--k) * 34);
+    --sub-w:     calc(var(--k) * 30);
+  }
+}
+
+*{ box-sizing: border-box; }
+html, body{
+  height: 100%;
+  margin: 0;
+  overflow: hidden;          /* one screen, never scrolls */
+  background: var(--ink);
+  color: var(--ivory);
+  -webkit-text-size-adjust: 100%;
+}
+body{
+  font-family: var(--f-display);
+  -webkit-font-smoothing: antialiased;
+  cursor: default;
+}
+
+/* ---------- stage ---------- */
+.stage{
+  position: fixed;
+  inset: 0;
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(104% 66% at 50% -16%, rgba(31,124,74,.80) 0%, rgba(31,124,74,0) 60%),
+    /* Just a breath of warmth along the bottom edge. Delete this
+       one line for a purely green ground. */
+    radial-gradient(80% 26% at 50% 116%, rgba(226,158,84,.15) 0%, rgba(226,158,84,0) 72%),
+    linear-gradient(170deg, #0C3822 0%, var(--ink) 46%, #04120B 100%);
+}
+/* hall-light bloom + vignette */
+.stage::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(50% 40% at 50% 46%, rgba(236,214,160,.08) 0%, rgba(236,214,160,0) 70%),
+    radial-gradient(124% 106% at 50% 50%, rgba(0,0,0,0) 42%, rgba(5,13,7,.80) 100%);
+}
+
+/* ---------- ambient layers ---------- */
+.mandala{
+  position: absolute;
+  left: 50%; top: 50%;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+}
+.mandala--far{
+  width: calc(var(--k) * 68); height: calc(var(--k) * 68);
+  margin: calc(var(--k) * -34) 0 0 calc(var(--k) * -34);
+  opacity: .095;
+  animation: spin 300s linear infinite;
+}
+.mandala--near{
+  width: calc(var(--k) * 38); height: calc(var(--k) * 38);
+  margin: calc(var(--k) * -19) 0 0 calc(var(--k) * -19);
+  opacity: .07;
+  animation: spin 186s linear infinite reverse;
+}
+/* scrim keeps the mandala off the type */
+.scrim{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(44% 38% at 50% 50%, rgba(7,23,13,.88) 0%, rgba(7,23,13,.44) 56%, rgba(7,23,13,0) 84%);
+}
+#dust{
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+/* ---------- corner brackets ---------- */
+.corner{
+  position: absolute;
+  width: calc(var(--k) * 7.6);
+  height: calc(var(--k) * 7.6);
+  pointer-events: none;
+  opacity: .62;
+}
+.corner::before,
+.corner::after{
+  content: "";
+  position: absolute;
+  background: linear-gradient(90deg, var(--gold), rgba(224,168,78,0));
+}
+.corner::before{ inset: 0 auto auto 0; width: 100%; height: 1px; }
+.corner::after{
+  inset: 0 auto auto 0; width: 1px; height: 100%;
+  background: linear-gradient(180deg, var(--gold), rgba(224,168,78,0));
+}
+.corner i{
+  position: absolute;
+  left: calc(var(--k) * -0.28); top: calc(var(--k) * -0.28);
+  width: calc(var(--k) * 0.56); height: calc(var(--k) * 0.56);
+  background: var(--gold-lift);
+  transform: rotate(45deg);
+  box-shadow: 0 0 calc(var(--k) * 1.1) rgba(247,216,154,.75);
+}
+.corner--tl{ left: calc(var(--k) * 3.4); top: calc(var(--k) * 3.4); }
+.corner--tr{ right: calc(var(--k) * 3.4); top: calc(var(--k) * 3.4); transform: scaleX(-1); }
+.corner--bl{ left: calc(var(--k) * 3.4); bottom: calc(var(--k) * 3.4); transform: scaleY(-1); }
+.corner--br{ right: calc(var(--k) * 3.4); bottom: calc(var(--k) * 3.4); transform: scale(-1); }
+
+/* ---------- frame: masthead / slide / footer ---------- */
+.frame{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  padding: calc(var(--k) * 6.4) calc(var(--k) * 7.2) calc(var(--k) * 4.6);
+}
+/* grid items default to min-width:auto, which lets a long
+   letterspaced line push the whole frame wider than the screen */
+.frame > *{ min-width: 0; max-width: 100%; }
+
+/* The invocation takes the whole screen to itself. With the other
+   two rows gone the deck would auto-place into the leading `auto`
+   track and collapse to content height, so give it a lone 1fr. */
+.frame.is-invocation{
+  padding: calc(var(--k) * 4.2) calc(var(--k) * 5) calc(var(--k) * 4.2);
+  grid-template-rows: 1fr;
+  align-items: stretch;
+}
+.frame.is-invocation > .masthead,
+.frame.is-invocation > .footer{ display: none; }
+
+.masthead{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--k) * 1.1);
+  text-align: center;
+}
+.names{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--k) * 1.9);
+  font-family: var(--f-np-disp);
+  font-size: var(--t-mono);
+  line-height: 1;
+  color: var(--white);
+  text-shadow: 0 0 calc(var(--k) * 2.4) rgba(247,216,154,.30);
+}
+.names svg{
+  width: calc(var(--k) * 2.1);
+  height: calc(var(--k) * 2.1);
+  flex: none;
+}
+.names-en{
+  font-family: var(--f-display);
+  font-size: calc(var(--k) * 1.2);
+  font-weight: 500;
+  letter-spacing: .42em;
+  text-indent: .5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .9;
+}
+
+/* slide layers stack for the cross-fade */
+.deck{
+  position: relative;
+  height: 100%;
+  display: grid;
+}
+.slide{
+  grid-area: 1 / 1;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--k) * 2.0);
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+}
+.slide.is-live{ opacity: 1; visibility: visible; }
+
+.eyebrow{
+  margin: 0;
+  max-width: 92%;
+  font-family: var(--f-util);
+  font-size: var(--t-eyebrow);
+  letter-spacing: .3em;
+  text-indent: .3em;
+  text-transform: uppercase;
+  color: var(--gold-lift);
+  opacity: 1;
+}
+.eyebrow .np{
+  font-family: var(--f-np);
+  letter-spacing: .12em;
+  text-indent: 0;
+}
+
+.headline{
+  margin: 0;
+  max-width: min(var(--head-w), 92%);
+  font-family: var(--f-np-disp);
+  font-weight: 400;
+  line-height: 1.34;
+  text-wrap: balance;
+  color: transparent;
+  filter: drop-shadow(0 calc(var(--k) * 0.16) calc(var(--k) * 1.5) rgba(2,18,11,.9));
+}
+.headline--xl{ font-size: var(--t-head-xl); }
+.headline--lg{ font-size: var(--t-head-lg); }
+.headline--md{ font-size: var(--t-head-md); }
+.headline--sm{ font-size: var(--t-head-sm); }
+/* the sheen lives on each word, not the h1. A word that animates
+   its own transform needs to carry its own clipped gradient */
+.headline .w{
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(calc(var(--k) * 1.1));
+  background-image: linear-gradient(178deg, var(--white) 2%, var(--pearl) 30%, var(--ivory) 62%, #E9C88A 100%);
+  background-size: 100% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.rule{
+  display: flex;
+  align-items: center;
+  gap: calc(var(--k) * 1.0);
+  width: calc(var(--k) * 21);
+  max-width: 62vw;
+  opacity: 0;
+}
+.rule span{
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, rgba(224,168,78,0), var(--gold));
+}
+.rule span + span{ background: linear-gradient(90deg, var(--gold), rgba(224,168,78,0)); }
+.rule i{
+  width: calc(var(--k) * 0.62);
+  height: calc(var(--k) * 0.62);
+  flex: none;
+  background: var(--gold-lift);
+  transform: rotate(45deg);
+  box-shadow: 0 0 calc(var(--k) * 1.3) rgba(247,216,154,.65);
+}
+
+.subline{
+  margin: 0;
+  max-width: min(var(--sub-w), 90%);
+  font-family: var(--f-display);
+  font-size: var(--t-sub);
+  font-weight: 500;
+  font-style: italic;
+  /* Bodoni is a Didone: its hairlines thin out as the optical size
+     axis climbs, and from the back of a hall they disappear. Pin a
+     small optical size so the strokes stay sturdy at display size. */
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' 14, 'wght' 500;
+  line-height: 1.5;
+  color: var(--pearl);
+  text-shadow: 0 calc(var(--k) * 0.06) calc(var(--k) * 0.5) rgba(4,18,11,.55);
+  opacity: 0;
+  text-wrap: pretty;
+}
+
+/* ---------- invocation slide ---------- */
+.slide--invocation{
+  gap: calc(var(--k) * 2.4);
+  height: 100%;
+  justify-content: center;
+  /* The mantra sits below the murti, which would leave the murti's
+     centre sitting high on the screen. This matches that weight at
+     the top so the ॐ (or the picture) lands on the true centre. */
+  padding-top: calc(var(--k) * 10.7);
+}
+/* basis 0, not auto. Otherwise a tall picture sets the basis and
+   shoves the mantra off the bottom of the screen */
+/* No overflow clip here: the ॐ's halo spreads past this box, and
+   clipping it cut a hard rectangle out of the glow. The picture
+   cannot spill anyway: object-fit keeps it inside. */
+.murti{
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.murti img{
+  display: none;            /* a display:none image still loads */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* fills the screen, never crops */
+  object-position: center;
+  filter: drop-shadow(0 calc(var(--k) * 0.8) calc(var(--k) * 3) rgba(2,18,11,.75));
+}
+.murti.has-image img{ display: block; }
+/* stands in until a picture is dropped into the folder */
+.om{
+  display: block;
+  font-family: var(--f-np);
+  font-size: var(--t-om);
+  line-height: 1.1;
+  color: transparent;
+  background-image: linear-gradient(176deg, var(--white) 4%, var(--gold-lift) 46%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 calc(var(--k) * 3.4) rgba(255,158,61,.45));
+}
+.murti.has-image .om{ display: none; }
+
+.mantra{
+  margin: 0;
+  flex: none;
+  font-family: var(--f-np);
+  font-size: var(--t-mantra);
+  line-height: 1.4;
+  color: transparent;
+  background-image: linear-gradient(176deg, var(--white) 6%, var(--gold-lift) 70%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 calc(var(--k) * 0.14) calc(var(--k) * 1.4) rgba(2,18,11,.9));
+}
+.mantra-en{
+  margin: 0;
+  flex: none;
+  font-family: var(--f-util);
+  font-size: calc(var(--k) * 1.4);
+  letter-spacing: .28em;
+  text-indent: .28em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  opacity: .72;
+}
+.slide--invocation.is-in .murti{ animation: softIn 1400ms ease 200ms both; }
+.slide--invocation.is-in .mantra{ animation: softIn 1200ms ease 900ms both; }
+.slide--invocation.is-in .mantra-en{ animation: softIn 1200ms ease 1400ms both; }
+
+/* the bloom behind an arriving headline */
+.bloom{
+  position: absolute;
+  left: 50%; top: 50%;
+  width: calc(var(--k) * 30);
+  height: calc(var(--k) * 30);
+  margin: calc(var(--k) * -15) 0 0 calc(var(--k) * -15);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle, rgba(255,205,130,.26) 0%, rgba(255,158,61,.12) 42%, rgba(255,158,61,0) 66%);
+}
+.bloom.go{ animation: bloom 2200ms cubic-bezier(.16,.75,.3,1) both; }
+
+/* ---------- footer: occasion, dots, progress ---------- */
+.footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--k) * 1.5);
+}
+.occasion{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: calc(var(--k) * 0.4) calc(var(--k) * 1.2);
+  max-width: 100%;
+  font-size: var(--t-foot);
+  text-align: center;
+  color: var(--ivory);
+  opacity: .55;
+}
+.occasion .np{ font-family: var(--f-np); }
+.occasion .en{
+  font-family: var(--f-util);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+}
+.occasion .dot{ color: var(--gold); opacity: .8; }
+.occasion:empty{ display: none; }
+
+.dots{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  gap: calc(var(--k) * 0.95);
+}
+.dots button{
+  -webkit-appearance: none;
+  appearance: none;
+  width: calc(var(--k) * 0.5);
+  height: calc(var(--k) * 0.5);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,246,230,.26);
+  cursor: pointer;
+  transition: background 500ms ease, width 700ms cubic-bezier(.2,.8,.2,1), box-shadow 500ms ease;
+}
+.dots button:hover{ background: rgba(255,246,230,.5); }
+.dots button[aria-current="true"]{
+  width: calc(var(--k) * 2.6);
+  border-radius: calc(var(--k) * 0.3);
+  background: var(--gold-lift);
+  box-shadow: 0 0 calc(var(--k) * 1.4) rgba(247,216,154,.6);
+}
+.dots button:focus-visible{
+  outline: 1px solid var(--gold-lift);
+  outline-offset: calc(var(--k) * 0.5);
+}
+
+/* Hidden on purpose: the footer carries the date and nothing else.
+   Delete these two rules to bring the position dots and the timing
+   bar back. */
+.dots{ display: none; }
+.progress{ display: none; }
+
+.progress{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: max(2px, calc(var(--k) * 0.12));
+  background: rgba(255,246,230,.08);
+  overflow: hidden;
+}
+.progress i{
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--saffron), var(--gold), var(--gold-lift));
+}
+.progress i.run{ animation: fill linear both; }
+
+/* ---------- operator hint ---------- */
+.hint{
+  position: absolute;
+  right: calc(var(--k) * 1.4);
+  bottom: calc(var(--k) * 0.85);
+  z-index: 3;
+  font-family: var(--f-util);
+  font-size: calc(var(--k) * 0.86);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  opacity: .34;
+  animation: fadeOut 900ms ease 9s both;
+  pointer-events: none;
+}
+.paused .hint{ animation: none; opacity: .5; }
+
+/* ---------- motion ---------- */
+@keyframes spin{ to{ transform: rotate(360deg); } }
+@keyframes fill{ from{ width: 0; } to{ width: 100%; } }
+@keyframes fadeOut{ to{ opacity: 0; } }
+@keyframes bloom{
+  0%  { opacity: 0; transform: scale(.55); }
+  26% { opacity: 1; }
+  100%{ opacity: 0; transform: scale(1.5); }
+}
+@keyframes wordIn{
+  from{ opacity: 0; transform: translateY(calc(var(--k) * 1.1)); }
+  to  { opacity: 1; transform: translateY(0); }
+}
+@keyframes softIn{
+  from{ opacity: 0; transform: translateY(calc(var(--k) * 0.7)); }
+  to  { opacity: 1; transform: translateY(0); }
+}
+@keyframes ruleIn{
+  from{ opacity: 0; clip-path: inset(0 46% 0 46%); }
+  to  { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+@keyframes layerOut{
+  from{ opacity: 1; transform: translateY(0) scale(1); }
+  to  { opacity: 0; transform: translateY(calc(var(--k) * -1.4)) scale(.985); }
+}
+/* fabric shimmer across the type, very low contrast and very slow */
+@keyframes sheen{
+  0%,100%{ background-position: 0% 0%; }
+  50%    { background-position: 0% 100%; }
+}
+/* slow drift of the whole composition: keeps a hall screen from
+   burning a static image over a long event */
+@keyframes breathe{
+  0%,100%{ transform: translate3d(0,0,0) scale(1); }
+  50%    { transform: translate3d(0, calc(var(--k) * -0.5), 0) scale(1.006); }
+}
+
+.slide.is-in .eyebrow{ animation: softIn 900ms ease 120ms both; }
+.slide.is-in .rule{ animation: ruleIn 1100ms cubic-bezier(.2,.8,.2,1) 620ms both; }
+.slide.is-in .subline{ animation: softIn 1100ms ease 900ms both; }
+.slide.is-in .w{
+  animation: wordIn 1000ms cubic-bezier(.2,.8,.2,1) both,
+             sheen 16s ease-in-out infinite;
+}
+.slide.is-out{ animation: layerOut 900ms ease both; }
+.frame{ animation: breathe 96s ease-in-out infinite; }
+
+@media (orientation: portrait){
+  /* operator keys aren't reachable on a phone, so drop the hint */
+  .hint{ display: none; }
+  .occasion .en{ letter-spacing: .18em; }
+  .eyebrow{ letter-spacing: .28em; text-indent: .28em; }
+  .mantra-en{ letter-spacing: .22em; text-indent: .22em; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .mandala--far, .mandala--near, .frame{ animation: none; }
+  .slide.is-in .w,
+  .slide.is-in .eyebrow,
+  .slide.is-in .rule,
+  .slide.is-in .subline,
+  .slide--invocation.is-in .murti,
+  .slide--invocation.is-in .mantra,
+  .slide--invocation.is-in .mantra-en{ animation: softIn 500ms ease both; }
+  .slide.is-out{ animation: fadeOut 400ms ease both; }
+  .bloom.go{ animation: none; }
+  #dust{ display: none; }
+}
+</style>
+</head>
+<body>
+<main class="stage" id="stage">
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <span class="corner corner--tl" aria-hidden="true"><i></i></span>
+  <span class="corner corner--tr" aria-hidden="true"><i></i></span>
+  <span class="corner corner--bl" aria-hidden="true"><i></i></span>
+  <span class="corner corner--br" aria-hidden="true"><i></i></span>
+
+  <div class="frame" id="frame">
+    <header class="masthead">
+      <div class="names">
+        <span id="name-a">रित</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 1.5 13.7 9 21 12l-7.3 3L12 22.5 10.3 15 3 12l7.3-3Z" fill="#F7D89A" opacity=".92"/>
+          <circle cx="12" cy="12" r="1.5" fill="#0D3F26"/>
+        </svg>
+        <span id="name-b">अरुण</span>
+      </div>
+      <div class="names-en" id="names-en">Reet &amp; Arun</div>
+    </header>
+
+    <div class="deck" id="deck" aria-live="polite">
+      <div class="bloom" id="bloom" aria-hidden="true"></div>
+      <section class="slide" id="layer-0"></section>
+      <section class="slide" id="layer-1"></section>
+    </div>
+
+    <footer class="footer">
+      <div class="occasion" id="occasion"></div>
+      <div class="dots" id="dots" role="tablist" aria-label="Messages"></div>
+    </footer>
+  </div>
+
+  <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  <div class="hint" id="hint">&larr; &rarr; change &middot; F fullscreen &middot; P pause</div>
+</main>
+
+<script>
+/* ============================================================
+   EDIT HERE: names, occasion line, the Ganesh picture, and how
+   long each message stays on screen.
+   ============================================================ */
+const CONFIG = {
+  nameNP_a: 'रित',
+  nameNP_b: 'अरुण',
+  namesEN: 'Reet & Arun',
+  /* The line under the dots shows today's date in both calendars,
+     read from this device's clock. Fill either of these to pin a
+     fixed date instead. */
+  dateNP: '',                   // e.g. '२०८३ भदौ ३ गते'
+  dateEN: '',                   // e.g. '19 August 2026'
+
+  /* Drop a picture next to this file and put its name here. It
+     fills the first screen. Until then the ॐ stands in. */
+  ganeshImage: 'ganesh.png',
+
+  /* How long each screen stays up. Accepts s / m. Any single slide
+     below can carry its own `duration` to override this. The
+     invocation does. Put '30m' back for the event itself. */
+  slideDuration: '10s'
+};
+
+/* The invocation opens the loop, then 10 messages: welcome,
+   gratitude, blessings, and how much it means that everyone
+   came. Nepali leads, English follows. */
+const SLIDES = [
+  { invocation: true,
+    duration: '15s',              // the invocation holds a little longer
+    mantra: '॥ श्री गणेशाय नमः ॥',
+    mantraEN: 'We begin with the blessings of Lord Ganesh' },
+
+  { npLabel: 'स्वागतम्', enLabel: 'Welcome',
+    head: 'हजुरहरूलाई हार्दिक स्वागत',
+    sub:  'Welcome to the engagement of Reet and Arun. Thank you for being here as we begin.' },
+
+  { npLabel: 'आजको दिन', enLabel: 'Today',
+    head: 'आज दुई मन एक भए',
+    sub:  'Today two hearts say yes, and two families become one.' },
+
+  { npLabel: 'आभार', enLabel: 'Gratitude',
+    head: 'हजुरहरू आउनुभयो, दिन पूर्ण भयो',
+    sub:  'This day is complete only because you are here to share it with us.' },
+
+  { npLabel: 'आशीर्वाद', enLabel: 'Blessings',
+    head: 'आशीर्वाद नै सबैभन्दा ठूलो उपहार',
+    sub:  'Your blessings are the greatest gift we could have asked for.' },
+
+  { npLabel: 'वचन', enLabel: 'The Promise',
+    head: 'वचन दिइयो, नाता जोडियो',
+    sub:  'A promise given and a bond tied, witnessed by everyone we love.' },
+
+  { npLabel: 'यो क्षण', enLabel: 'This Moment',
+    head: 'यो दिन जीवनभर सम्झनेछौं',
+    sub:  'Years from now, this is still the day we will be talking about.' },
+
+  { npLabel: 'परिवार', enLabel: 'Our Families',
+    head: 'दुई परिवार, अब एउटै',
+    sub:  'From both our families, thank you for making this day yours too.' },
+
+  { npLabel: 'रमाइलो', enLabel: 'Celebrate',
+    head: 'मिठो खाना, मिठो हाँसो',
+    sub:  'Eat well, laugh loudly, and stay a little longer than you planned.' },
+
+  { npLabel: 'सम्झना', enLabel: 'Memories',
+    head: 'हाँस्नुहोस्, नाच्नुहोस्, तस्बिर खिच्नुहोस्',
+    sub:  'Dance, take photographs, and leave us a memory worth keeping.' },
+
+  { npLabel: 'पितृ स्मरण', enLabel: 'In Remembrance',
+    head: 'पितृहरूको सम्झना, आशीर्वाद सँगै',
+    sub:  'Remembering those who came before us. Their blessings are with us today.' },
+
+  { npLabel: 'धन्यवाद', enLabel: 'Thank You',
+    head: 'धेरै धेरै धन्यवाद',
+    sub:  'For your time, your love, and your blessings. With love, Reet and Arun.' }
+];
+
+/* ---------- how long each screen stays, ?slide=45s to override ---------- */
+function parseDuration(text){
+  const m = String(text || '').match(/^(\d+(?:\.\d+)?)\s*(ms|s|m)?$/i);
+  if (!m) return null;
+  const n = parseFloat(m[1]);
+  const unit = (m[2] || 'm').toLowerCase();
+  const ms = unit === 'ms' ? n : unit === 's' ? n * 1000 : n * 60000;
+  return ms >= 800 ? ms : null;
+}
+/* ?slide= in the URL is a testing override; it wins over every per-slide value */
+const URL_MS   = parseDuration(new URLSearchParams(location.search).get('slide'));
+const SLIDE_MS = URL_MS || parseDuration(CONFIG.slideDuration) || 30 * 60000;
+
+function currentMs(){
+  if (URL_MS) return URL_MS;
+  return parseDuration(SLIDES[index] && SLIDES[index].duration) || SLIDE_MS;
+}
+
+/* ============================================================
+   Today's date, in Bikram Sambat and in English.
+   Table: days per month for BS 2070 to 2090, each digit = days minus 29.
+   Anchor: 1 Baisakh 2070 BS = 14 April 2013. Checked against all
+   30,572 pairs in medic/bikram-sambat's test data.
+   ============================================================ */
+const BS_CAL = '222322011011223222101011232321101011232321110012222322101011223222101011232321110011232321110102222322101011223222101011232321110011232321110102223222101011223222101011223221110111232312110111132321110111223222110111123312110111132321110111132321110111';
+const BS_START_YEAR = 2070;
+const BS_ANCHOR = Date.UTC(2013, 3, 14);   // 14 April 2013
+const BS_MONTHS = ['बैशाख','जेठ','असार','साउन','भदौ','असोज','कात्तिक','मंसिर','पुस','माघ','फागुन','चैत'];
+const NP_DIGITS = ['०','१','२','३','४','५','६','७','८','९'];
+
+function npNum(n){
+  return String(n).replace(/\d/g, function(d){ return NP_DIGITS[+d]; });
+}
+function toBikramSambat(date){
+  const utc = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+  let days = Math.round((utc - BS_ANCHOR) / 86400000);
+  if (days < 0) return null;
+  let y = BS_START_YEAR, i = 0;
+  for (;;){
+    if ((i + 12) * 1 > BS_CAL.length) return null;      // past the table
+    let yearDays = 0;
+    for (let m = 0; m < 12; m++) yearDays += BS_CAL.charCodeAt(i + m) - 48 + 29;
+    if (days < yearDays) break;
+    days -= yearDays; y++; i += 12;
+  }
+  let m = 0;
+  for (;;){
+    const len = BS_CAL.charCodeAt(i + m) - 48 + 29;
+    if (days < len) break;
+    days -= len; m++;
+  }
+  return npNum(y) + ' ' + BS_MONTHS[m] + ' ' + npNum(days + 1) + ' गते';
+}
+
+/* ---------- masthead + footer from CONFIG ---------- */
+document.getElementById('name-a').textContent = CONFIG.nameNP_a;
+document.getElementById('name-b').textContent = CONFIG.nameNP_b;
+document.getElementById('names-en').textContent = CONFIG.namesEN;
+
+const occasion = document.getElementById('occasion');
+/* recomputed on every change, so a display left running overnight
+   rolls over to the new date on its own */
+function paintDate(){
+  const now = new Date();
+  const np = CONFIG.dateNP || toBikramSambat(now);
+  const en = CONFIG.dateEN || now.toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+  const bits = [];
+  if (np) bits.push('<span class="np">' + np + '</span>');
+  if (en) bits.push('<span class="en">' + en + '</span>');
+  occasion.innerHTML = bits.join('<span class="dot">&#9670;</span>');
+}
+paintDate();
+
+/* ---------- build a slide ---------- */
+function headSize(text){
+  const n = text.length;
+  return n <= 18 ? 'xl' : n <= 26 ? 'lg' : n <= 34 ? 'md' : 'sm';
+}
+/* A glyph's ink does not sit centred inside its line box, and how
+   far off depends on which font actually loaded: the webfont, or
+   the system one when the hall has no internet. So measure it at
+   run time and correct in em, which then holds at every size. */
+function centreGlyph(el, glyph){
+  try{
+    const cs = getComputedStyle(el);
+    const fs = parseFloat(cs.fontSize);
+    if (!fs) return;
+    const m = document.createElement('canvas').getContext('2d');
+    m.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + fs + 'px ' + cs.fontFamily;
+    const t = m.measureText(glyph);
+    const inkAsc = t.actualBoundingBoxAscent, inkDesc = t.actualBoundingBoxDescent;
+    const fAsc = t.fontBoundingBoxAscent,    fDesc = t.fontBoundingBoxDescent;
+    if (![inkAsc, inkDesc, fAsc, fDesc].every(Number.isFinite)) return;
+    const lh = parseFloat(cs.lineHeight) || (fAsc + fDesc);
+    const baseline = (lh - (fAsc + fDesc)) / 2 + fAsc;
+    const inkMid = baseline + (inkDesc - inkAsc) / 2;
+    el.style.transform = 'translateY(' + ((lh / 2 - inkMid) / fs).toFixed(4) + 'em)';
+  }catch(err){ /* leave the glyph as authored */ }
+}
+
+function render(layer, slide){
+  layer.classList.toggle('slide--invocation', !!slide.invocation);
+
+  if (slide.invocation){
+    layer.innerHTML =
+      '<div class="murti">' +
+        '<span class="om" aria-hidden="true">&#2384;</span>' +
+        '<img alt="Lord Ganesh">' +
+      '</div>' +
+      '<p class="mantra">' + slide.mantra + '</p>' +
+      '<p class="mantra-en">' + slide.mantraEN + '</p>';
+
+    /* show the picture only once it has actually loaded, so a
+       missing file never flashes a broken-image icon */
+    const box = layer.querySelector('.murti');
+    const img = layer.querySelector('.murti img');
+    const om  = layer.querySelector('.om');
+    img.addEventListener('load', function(){ box.classList.add('has-image'); });
+    img.addEventListener('error', function(){ box.classList.remove('has-image'); });
+    if (CONFIG.ganeshImage) img.src = CONFIG.ganeshImage;
+
+    centreGlyph(om, 'ॐ');
+    /* the webfont may still be in flight, so measure again once it lands */
+    if (document.fonts && document.fonts.ready){
+      document.fonts.ready.then(function(){ centreGlyph(om, 'ॐ'); });
+    }
+    return;
+  }
+
+  const words = slide.head.split(/\s+/).map(function(w, i){
+    return '<span class="w" style="animation-delay:' + (380 + i * 130) + 'ms">' + w + '</span>';
+  }).join(' ');
+  layer.innerHTML =
+    '<p class="eyebrow"><span class="np">' + slide.npLabel + '</span>' +
+      '<span aria-hidden="true"> &nbsp;&#9670;&nbsp; </span>' + slide.enLabel + '</p>' +
+    '<h1 class="headline headline--' + headSize(slide.head) + '">' + words + '</h1>' +
+    '<div class="rule" aria-hidden="true"><span></span><i></i><span></span></div>' +
+    '<p class="subline">' + slide.sub + '</p>';
+}
+
+/* ---------- deck ---------- */
+const layers = [document.getElementById('layer-0'), document.getElementById('layer-1')];
+const bloom  = document.getElementById('bloom');
+const bar    = document.getElementById('bar');
+const dotsEl = document.getElementById('dots');
+const frame  = document.getElementById('frame');
+
+let index = 0, live = 0, paused = false, timer = null;
+
+SLIDES.forEach(function(s, i){
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.setAttribute('role', 'tab');
+  b.setAttribute('aria-label', s.invocation ? 'Invocation' : s.enLabel);
+  b.addEventListener('click', function(){ go(i, true); });
+  dotsEl.appendChild(b);
+});
+const dots = Array.prototype.slice.call(dotsEl.children);
+
+function restartBar(){
+  bar.classList.remove('run');
+  bar.style.animationDuration = currentMs() + 'ms';
+  void bar.offsetWidth;                        // reflow so the animation replays
+  bar.classList.add('run');
+  bar.style.animationPlayState = paused ? 'paused' : 'running';
+}
+
+function go(next, manual){
+  const total = SLIDES.length;
+  index = (next + total) % total;
+  const slide = SLIDES[index];
+
+  const outLayer = layers[live];
+  const inLayer  = layers[live = 1 - live];
+
+  outLayer.classList.remove('is-in');
+  if (outLayer.innerHTML){
+    outLayer.classList.add('is-out');
+    setTimeout(function(){
+      outLayer.classList.remove('is-out', 'is-live');
+      outLayer.innerHTML = '';
+    }, 900);
+  } else {
+    outLayer.classList.remove('is-live');
+  }
+
+  frame.classList.toggle('is-invocation', !!slide.invocation);
+
+  render(inLayer, slide);
+  inLayer.classList.add('is-live');
+  void inLayer.offsetWidth;
+  inLayer.classList.add('is-in');
+
+  if (!slide.invocation){
+    bloom.classList.remove('go');
+    void bloom.offsetWidth;
+    bloom.classList.add('go');
+  }
+
+  dots.forEach(function(d, i){ d.setAttribute('aria-current', i === index ? 'true' : 'false'); });
+
+  paintDate();
+  restartBar();
+  schedule();
+  if (manual) burst(28);
+}
+
+function schedule(){
+  clearTimeout(timer);
+  if (!paused) timer = setTimeout(function(){ go(index + 1, false); }, currentMs());
+}
+function setPaused(state){
+  paused = state;
+  document.body.classList.toggle('paused', paused);
+  bar.style.animationPlayState = paused ? 'paused' : 'running';
+  if (paused) clearTimeout(timer); else schedule();
+}
+
+/* ---------- controls ---------- */
+document.addEventListener('keydown', function(e){
+  const k = e.key.toLowerCase();
+  if (e.key === 'ArrowRight' || e.key === 'PageDown'){ go(index + 1, true); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp'){ go(index - 1, true); }
+  else if (e.key === ' '){ e.preventDefault(); setPaused(!paused); }
+  else if (k === 'p'){ setPaused(!paused); }
+  else if (k === 'f'){ toggleFullscreen(); }
+  else if (k === 'home'){ go(0, true); }
+});
+document.getElementById('stage').addEventListener('click', function(e){
+  if (e.target.closest('button')) return;
+  go(index + 1, true);
+});
+function toggleFullscreen(){
+  if (document.fullscreenElement) document.exitFullscreen();
+  else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+}
+
+/* keep a hall display awake for the whole event */
+let lock = null;
+async function keepAwake(){
+  if (!('wakeLock' in navigator)) return;
+  try{
+    if (lock && !lock.released) return;
+    lock = await navigator.wakeLock.request('screen');
+  }catch(err){ /* needs a gesture or a secure context, harmless */ }
+}
+keepAwake();
+document.addEventListener('click', keepAwake, { once: false });
+document.addEventListener('visibilitychange', function(){
+  if (document.visibilityState === 'visible') keepAwake();
+});
+
+/* ============================================================
+   Ambient: procedural mandala + drifting light.
+   ============================================================ */
+function mandala(size){
+  const c = document.createElement('canvas');
+  c.width = c.height = size;
+  const g = c.getContext('2d');
+  g.translate(size / 2, size / 2);
+  g.strokeStyle = '#E0A84E';
+  g.lineWidth = Math.max(1, size / 900);
+  g.lineJoin = 'round';
+  const rings = [
+    { n: 36, r: .480, p: .034 },
+    { n: 28, r: .400, p: .042 },
+    { n: 22, r: .320, p: .050 },
+    { n: 16, r: .240, p: .055 },
+    { n: 12, r: .160, p: .055 },
+    { n: 8,  r: .090, p: .045 }
+  ];
+  rings.forEach(function(ring){
+    for (let i = 0; i < ring.n; i++){
+      g.save();
+      g.rotate(i / ring.n * Math.PI * 2);
+      const R = ring.r * size, P = ring.p * size;
+      g.beginPath();
+      g.moveTo(0, -R + P * 1.5);
+      g.quadraticCurveTo(P, -R + P * .15, 0, -R - P * 1.35);
+      g.quadraticCurveTo(-P, -R + P * .15, 0, -R + P * 1.5);
+      g.stroke();
+      g.restore();
+    }
+    g.save();
+    g.globalAlpha = .42;
+    g.beginPath();
+    g.arc(0, 0, ring.r * size, 0, Math.PI * 2);
+    g.stroke();
+    g.restore();
+  });
+  return c;
+}
+(function placeMandalas(){
+  const stage = document.getElementById('stage');
+  [['far', 1200], ['near', 760]].forEach(function(pair){
+    const el = mandala(pair[1]);
+    el.className = 'mandala mandala--' + pair[0];
+    el.setAttribute('aria-hidden', 'true');
+    stage.insertBefore(el, document.getElementById('dust'));
+  });
+})();
+
+/* drifting light: one pre-rendered soft sprite, drawn many times */
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cv = document.getElementById('dust');
+const ctx = cv.getContext('2d');
+let W = 0, H = 0, parts = [];
+
+function sprite(hex){
+  const s = document.createElement('canvas');
+  s.width = s.height = 64;
+  const g = s.getContext('2d');
+  const rad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+  rad.addColorStop(0,   hex);
+  rad.addColorStop(.28, hex);
+  rad.addColorStop(1,   'rgba(255,255,255,0)');
+  g.fillStyle = rad;
+  g.beginPath();
+  g.arc(32, 32, 32, 0, Math.PI * 2);
+  g.fill();
+  return s;
+}
+const sprites = [sprite('#FFF3DC'), sprite('#F7D89A'), sprite('#FFB460')];
+
+function seed(n){
+  parts = [];
+  for (let i = 0; i < n; i++){
+    const big = i % 11 === 0;
+    parts.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: (big ? 9 : 1.1) + Math.random() * (big ? 16 : 2.2),
+      vy: -(0.05 + Math.random() * 0.20) * (big ? 0.4 : 1),
+      vx: (Math.random() - 0.5) * 0.10,
+      a: big ? 0.05 + Math.random() * 0.05 : 0.20 + Math.random() * 0.55,
+      ph: Math.random() * Math.PI * 2,
+      sp: 0.0006 + Math.random() * 0.0022,
+      s: sprites[i % 3]
+    });
+  }
+}
+function resize(){
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  W = cv.clientWidth;
+  H = cv.clientHeight;
+  cv.width  = Math.max(1, Math.round(W * dpr));
+  cv.height = Math.max(1, Math.round(H * dpr));
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  seed(Math.round(Math.min(110, Math.max(34, W * H / 26000))));
+}
+function frameLoop(t){
+  if (document.visibilityState !== 'visible'){ requestAnimationFrame(frameLoop); return; }
+  ctx.clearRect(0, 0, W, H);
+  ctx.globalCompositeOperation = 'lighter';
+  for (let i = 0; i < parts.length; i++){
+    const p = parts[i];
+    p.y += p.vy;
+    p.x += p.vx + Math.sin((t * p.sp) + p.ph) * 0.12;
+    if (p.y < -p.r * 2){ p.y = H + p.r * 2; p.x = Math.random() * W; }
+    if (p.x < -p.r * 2) p.x = W + p.r * 2;
+    if (p.x > W + p.r * 2) p.x = -p.r * 2;
+    ctx.globalAlpha = Math.max(0, p.a * (0.55 + 0.45 * Math.sin(t * p.sp * 2.2 + p.ph)));
+    ctx.drawImage(p.s, p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);
+  }
+  ctx.globalAlpha = 1;
+  ctx.globalCompositeOperation = 'source-over';
+  requestAnimationFrame(frameLoop);
+}
+/* a small extra shower when a message changes by hand */
+function burst(n){
+  if (reduced) return;
+  for (let i = 0; i < n; i++){
+    parts.push({
+      x: W / 2 + (Math.random() - 0.5) * W * 0.34,
+      y: H / 2 + (Math.random() - 0.5) * H * 0.22,
+      r: 1.2 + Math.random() * 2.6,
+      vy: -(0.10 + Math.random() * 0.34),
+      vx: (Math.random() - 0.5) * 0.5,
+      a: 0.35 + Math.random() * 0.5,
+      ph: Math.random() * Math.PI * 2,
+      sp: 0.001 + Math.random() * 0.003,
+      s: sprites[i % 3]
+    });
+  }
+  if (parts.length > 220) parts.splice(0, parts.length - 220);
+}
+
+let rz;
+addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(resize, 160); });
+addEventListener('orientationchange', function(){ setTimeout(resize, 220); });
+
+if (!reduced){
+  resize();
+  requestAnimationFrame(frameLoop);
+}
+
+/* ---------- start ---------- */
+go(0, false);
+</script>
+</body>
+</html>
